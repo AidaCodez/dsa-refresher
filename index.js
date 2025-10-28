@@ -1,4 +1,4 @@
-let fruits = ["mango", "banana", "apple", "coconut"];
+/*let fruits = ["mango", "banana", "apple", "coconut"];
 
 //print the array
 console.log(fruits);
@@ -47,4 +47,65 @@ console.log(fruits);
 
 //remove the element from beginning of the array
 console.log(fruits.shift());
-console.log(fruits);
+console.log(fruits);*/
+
+class Stack {
+    // items = []
+
+    // push(element){
+    //     this.items.push(element);
+    // }
+
+    // pop(){
+    //     return this.items.pop();
+    // }
+
+    // isEmpty(){
+    //     return this.size() === 0;
+    // }
+
+    // size(){
+    //     return this.items.length;
+    // }
+
+    // peek(){
+    //     return this.items[this.size() - 1];
+    // }
+    constructor(){
+        this.storage = {};
+        this.size = 0;
+    }
+
+    push(element){
+        this.storage[this.size] = element;
+        this.size++;
+    }
+
+    pop(){
+        let removed = this.storage[this.size -1];
+        delete this.storage[this.size];
+        this.size--;
+        return removed;
+    }
+
+    peek(){
+        return this.storage[this.size -1];
+    }
+}
+
+const stack = new Stack();
+// stack.push({ id: "1", name: "foo"});
+// stack.push({ id: "2", name: "bar"});
+// stack.push({ id: "3", name: "baz"});
+// console.log(stack.size());
+// console.log(stack.isEmpty());
+// const firstElement = stack.pop();
+// console.log(firstElement, stack.items);
+
+stack.push('dog');
+stack.push('cat');
+stack.push('bear');
+console.log(stack.peek());
+console.log(stack.pop());
+console.log(stack.peek());
+
