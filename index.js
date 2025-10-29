@@ -49,7 +49,7 @@ console.log(fruits);
 console.log(fruits.shift());
 console.log(fruits);*/
 
-class Stack {
+/*class Stack {
     // items = []
 
     // push(element){
@@ -107,5 +107,66 @@ stack.push('cat');
 stack.push('bear');
 console.log(stack.peek());
 console.log(stack.pop());
-console.log(stack.peek());
+console.log(stack.peek());*/
+
+class Queue{
+    // items = [];
+
+    // enqueue(element){
+    //     this.items.push(element);
+    // }
+
+    // dequeue(){
+    //     return this.items.shift(); //this is 0(n) complexity due to shift of index
+    // }
+
+    // isEmpty(){
+    //     return this.size() === 0;
+    // }
+
+    // size(){
+    //     return this.items.length;
+    // }
+
+    // peek(){
+    //     return this.items[0];
+    // }
+    constructor(){
+        this.storage = {};
+        this.head = 0;
+        this.tail = 0;
+    }
+
+    enqueue(element){
+        this.storage[this.tail] = element;
+        this.tail++;
+    }
+
+    dequeue(){
+        let removed = this.storage[this.head];
+        delete this.storage[this.head];
+        this.head++;
+        return removed;
+    }
+
+    peek(){
+        return this.storage[this.head];
+    }
+}
+
+const queue = new Queue;
+// queue.enqueue({ id: "1", name: "foo"});
+// queue.enqueue({ id: "2", name: "bar"});
+// queue.enqueue({ id: "3", name: "baz"});
+// console.log(queue.size());
+// console.log(queue.isEmpty());
+// const firstElement = queue.dequeue();
+// console.log(firstElement, queue.items);
+
+queue.enqueue('red');
+queue.enqueue('blue');
+queue.enqueue('yellow');
+console.log(queue.peek());
+console.log(queue.dequeue());
+console.log(queue.peek());
 
